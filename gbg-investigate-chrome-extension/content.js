@@ -72,6 +72,10 @@ function showStyledPopup(urlFragment) {
   `;
 
   document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.remove();
+  }, 10000); // Remove after 10 seconds
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
