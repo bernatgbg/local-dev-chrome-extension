@@ -22,22 +22,23 @@ function waitForElement(selector, callback) {
 
 function injectLocalLoginButton(urlFragment) {
   waitForElement('.btn.primary.js-i-agree.ont-btn-login.ont-consent-btn', (agreeBtn) => {
-    const localBtn = document.createElement("button");
-    localBtn.textContent = "Redirect to dev localhost";
-    localBtn.style.backgroundColor = "rgb(176, 1, 58)";
-    localBtn.style.color = "#fff";
-    localBtn.style.border = "none";
-    localBtn.style.padding = "10px 20px";
-    localBtn.style.borderRadius = "4px";
-    localBtn.style.cursor = "pointer";
-    localBtn.style.fontFamily = "Arial, sans-serif";
-    localBtn.style.width = "340px";
-    localBtn.onclick = () => {
-      window.location.assign(`http://localhost:9004/#${urlFragment}`);
-    };
+    const localLink = document.createElement("a");
+    localLink.textContent = "Redirect to dev localhost";
+    localLink.href = `http://localhost:9004/#${urlFragment}`;
+    localLink.style.display = "inline-block";
+    localLink.style.backgroundColor = "rgb(176, 1, 58)";
+    localLink.style.color = "#fff";
+    localLink.style.border = "none";
+    localLink.style.padding = "10px";
+    localLink.style.borderRadius = "4px";
+    localLink.style.cursor = "pointer";
+    localLink.style.fontFamily = "Arial, sans-serif";
+    localLink.style.width = "320px";
+    localLink.style.textDecoration = "none";
+    localLink.style.textAlign = "center";
+    localLink.style.marginBottom = "10px";
 
-    agreeBtn.parentNode.insertBefore(localBtn, agreeBtn);
-    localBtn.style.marginBottom = "10px";
+    agreeBtn.parentNode.insertBefore(localLink, agreeBtn);
   });
 }
 
