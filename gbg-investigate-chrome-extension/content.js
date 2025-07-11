@@ -33,7 +33,7 @@ function injectLocalLoginButton(urlFragment) {
     localBtn.style.fontFamily = "Arial, sans-serif";
     localBtn.style.width = "340px";
     localBtn.onclick = () => {
-      window.location.href = `http://localhost:9004/#${urlFragment}`;
+      window.location.assign(`http://localhost:9004/#${urlFragment}`);
     };
 
     agreeBtn.parentNode.insertBefore(localBtn, agreeBtn);
